@@ -1,0 +1,108 @@
+<!doctype html> 
+{% load static %}
+ <html lang="en" data-theme="light">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="color-scheme" content="dark light">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app_common/css/main.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app_common/css/utilities.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script defer="defer" data-domain="webpixels.works" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+      <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg scrollbar" id="sidebar">
+        <div class="container-fluid"><button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand d-inline-block py-lg-2 mb-lg-5 px-lg-6 me-0" href="{% static 'app_common/index.html"><img
+                        src="{% static 'app_common/img/logos/clever-primary.svg'%}" alt="..."></a>
+          <div class="navbar-user d-lg-none">
+            <div class="dropdown"><a href="#" id="sidebarAvatar" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar-parent-child"><img alt="..." src="{% static 'app_common/img/people/img-profile.jpg'%}" class="avatar avatar- rounded-circle"><span class="avatar-child avatar-badge bg-success"></span></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sidebarAvatar"><a href="#" class="dropdown-item">Profile</a><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Billing</a>
+                <hr class="dropdown-divider"><a href="#" class="dropdown-item">Logout</a>
+              </div>
+            </div>
+          </div> {% include 'admin_dashboard/menu.html' %}
+        </div>
+      </nav>
+      <div class="flex-lg-1 h-screen overflow-y-lg-auto">
+        <nav class="navbar navbar-light position-lg-sticky top-lg-0 d-none d-lg-block overlap-10 flex-none bg-white border-bottom px-0 py-3" id="topbar">
+          <div class="container-fluid">
+            <div class="hstack gap-2"></div>
+            <form class="form-inline ms-auto me-4 d-none d-md-flex"></form>
+            <div class="navbar-user d-none d-sm-block">
+              <div class="hstack gap-3 ms-4">
+                <div class="dropdown"><a href="#" class="nav-link px-3 text-base text-muted text-opacity-70 text-opacity-100-hover" id="dropdown-notifications" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell-fill"></i></a>
+                  <div class="dropdown-menu dropdown-menu-end px-2" aria-labelledby="dropdown-notifications">
+                    <div class="dropdown-item d-flex align-items-center">
+                      <h6 class="dropdown-header p-0 m-0 font-semibold">Notifications</h6><a href="#" class="text-sm font-semibold ms-auto">Clear all</a>
+                    </div>
+                    <div class="dropdown-item py-3 d-flex">
+                      <div>
+                        <div class="avatar bg-tertiary text-white rounded-circle">RF</div>
+                      </div>
+                      <div class="flex-fill ms-3">
+                        <div class="text-sm lg-snug w-64 text-wrap"><a href="#" class="font-semibold text-heading text-primary-hover">Robert</a> sent a message to <a href="#" class="font-semibold text-heading text-primary-hover">Webpixels</a></div><span class="text-muted text-xs">30 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="dropdown-item py-3 d-flex">
+                      <div><img alt="..." src="{% static 'app_common/img/people/img-1.jpg'%}" class="avatar rounded-circle"></div>
+                      <div class="flex-fill ms-3">
+                        <div class="text-sm lg-snug w-64 text-wrap"><a href="#" class="font-semibold text-heading text-primary-hover">Robert</a> sent a message to <a href="#" class="font-semibold text-heading text-primary-hover">Webpixels</a></div><span class="text-muted text-xs">30 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="dropdown-item py-3 d-flex">
+                      <div><img alt="..." src="{% static 'app_common/img/people/img-2.jpg'%}" class="avatar rounded-circle"></div>
+                      <div class="flex-fill ms-3">
+                        <div class="text-sm lg-snug w-64 text-wrap"><a href="#" class="font-semibold text-heading text-primary-hover">Robert</a> sent a message to <a href="#" class="font-semibold text-heading text-primary-hover">Webpixels</a></div><span class="text-muted text-xs">30 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="dropdown-item py-3 d-flex">
+                      <div>
+                        <div class="avatar bg-success text-white rounded-circle">KW</div>
+                      </div>
+                      <div class="flex-fill ms-3">
+                        <div class="text-sm lg-snug w-64 text-wrap"><a href="#" class="font-semibold text-heading text-primary-hover">Robert</a> sent a message to <a href="#" class="font-semibold text-heading text-primary-hover">Webpixels</a></div><span class="text-muted text-xs">30 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="dropdown-item py-3 d-flex">
+                      <div><img alt="..." src="{% static 'app_common/img/people/img-4.jpg'%}" class="avatar rounded-circle"></div>
+                      <div class="flex-fill ms-3">
+                        <div class="text-sm lg-snug w-64 text-wrap"><a href="#" class="font-semibold text-heading text-primary-hover">Robert</a> sent a message to <a href="#" class="font-semibold text-heading text-primary-hover">Webpixels</a></div><span class="text-muted text-xs">30 mins ago</span>
+                      </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item py-2 text-center"><a href="#" class="font-semibold text-muted text-primary-hover">View all</a></div>
+                  </div>
+                </div>
+                <div class="dropdown"><a class="d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                    <div>
+                      <div class="avatar avatar-sm bg-warning rounded-circle text-white"><img alt="..." src="{% static 'app_common/img/people/img-profile.jpg'%}"></div>
+                    </div>
+                    <div class="d-none d-sm-block ms-3"><span class="h6">Tahlia</span></div>
+                    <div class="d-none d-md-block ms-md-2"><i class="bi bi-chevron-down text-muted text-xs"></i></div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <div class="dropdown-header"><span class="d-block text-sm text-muted mb-1">Signed in as</span><span class="d-block text-heading font-semibold">Tahlia Mooney</span></div>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="bi bi-house me-3"></i>Home </a><a class="dropdown-item" href="#"><i class="bi bi-pencil me-3"></i>Edit profile</a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="bi bi-gear me-3"></i>Settings </a><a class="dropdown-item" href="#"><i class="bi bi-image me-3"></i>Media </a><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-up me-3"></i>Share</a>
+                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="bi bi-person me-3"></i>Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+    <script src="{% static 'app_common/js/main.js'%}"></script>
+  </body>
+</html>
