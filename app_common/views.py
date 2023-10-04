@@ -11,16 +11,13 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_str
 from django.http import JsonResponse
 
+
+
 from helpers import utils
 from . import models
 
 app = "app_common/"
 
-class Login(View):
-    
-
-    def get(self, request):
-        return render(request, self.template)
 
 class Login(View):
     model=models.User
@@ -57,3 +54,13 @@ class Login(View):
             messages.error(request, "Login Failed")
 
         return redirect('app_common:login')
+    
+class Home(View):
+    template = app + 'index.html'
+
+    def get(self, request):
+        
+        return render(
+            request,
+            self.template
+        )

@@ -1,0 +1,32 @@
+.topbar{
+    padding: 7px;
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+    border-bottom: 1px solid #0ce2f5;
+}
+
+.topbar .hello{
+    color: #bd069b;
+    font-size: 21px;
+}
+
+@media only screen and (max-width: 600px) {
+    .topbar .hello {
+        font-size: 15px;
+    }
+  }
+
+.topbar .drop .icon_holder{
+    margin-top: -7px;
+    border-radius: 4rem;
+    height: 2rem;
+    width: 3rem;
+}
+
+.topbar .drop .icon_holder i{
+    color: #9710e0;
+    padding-top: 14px;
+    padding-left: 13px;
+}
+

@@ -35,8 +35,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     password = models.TextField(null=True,blank=True)
     email = models.EmailField(null=True,blank=True,unique=True)
 
-    token= models.TextField(null=True, blank=True)
-
     contact = models.CharField(max_length= 10, null=True, blank=True)
 
     is_staff = models.BooleanField(default=False)
@@ -75,12 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             contact_number='no contact present'
 
         return contact_number
-    
-    def get_token(self, *args, **kwargs):
-        token= generate_random_string()
-        self.token= token
-        super().save(*args, **kwargs)
-        return token
+
 
     def __str__(self):
         return self.email
