@@ -16,7 +16,7 @@ from helpers import utils
 
 app = "admin_dashboard/"
 
-@method_decorator(utils.super_admin_only, name='dispatch')
+# @method_decorator(utils.super_admin_only, name='dispatch')
 class AdminDashboard(View):
     template = app + "index.html"
 
