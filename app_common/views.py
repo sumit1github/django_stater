@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-from django.contrib.auth.hashers import make_password
+
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import auth
 from django.conf import settings
@@ -12,19 +12,51 @@ from django.utils.encoding import force_str
 from django.http import JsonResponse
 
 
-
+from . import forms
 from helpers import utils
 from . import models
 
 app = "app_common/"
 
 
+class Register(View):
+    model = models.User
+    template = app + "authentication/register.html"
+    form_class = forms.RegisterForm
+
+    def get(self,request):
+        initial_data = {'invitation_code':request.GET.get('ref_id', None)}
+        context = {
+            'form': self.form_class(initial= initial_data)
+        }
+
+        return render(request, self.template, context)
+
+    def post(self,request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Account is created successfully')
+            return redirect('app_common:register')
+        else:
+
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field}: {error}')
+
+            return redirect('app_common:register')
+
+
 class Login(View):
     model=models.User
     template = app + "authentication/login.html"
+    form_class = forms.LoginForm
 
     def get(self,request):
-        return render(request,self.template)
+        context = {
+            "form": self.form_class
+        }
+        return render(request, self.template, context)
     
     def post(self,request):
         data=request.POST
